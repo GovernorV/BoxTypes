@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Конструктор типов ящиков — проектирование конструкций гофроупаковки</title>
+  <meta name="description" content="Windows-программа для выбора, расчёта и создания параметрических конструкций гофроящиков: библиотека FEFCO, развёртки, формулы и редактор команд BoxEdit.">
+  <meta name="keywords" content="конструктор гофроящиков, FEFCO, развёртка коробки, типы ящиков, гофроупаковка, BoxEdit, corrugated box designer">
+  <meta name="author" content="Viktor Guberniev">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#071421">
+  <link rel="canonical" href="https://governorv.github.io/BoxTypes/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PackTuning Software">
+  <meta property="og:title" content="Конструктор типов ящиков">
+  <meta property="og:description" content="Библиотека FEFCO, параметрические формулы и редактор развёрток гофроящиков в одной Windows-программе.">
+  <meta property="og:url" content="https://governorv.github.io/BoxTypes/">
+  <meta property="og:image" content="https://governorv.github.io/BoxTypes/assets/site/hero-ru.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/app-icon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Конструктор типов ящиков",
+    "alternateName": "Corrugated Box Type Designer",
+    "applicationCategory": "DesignApplication",
+    "operatingSystem": "Windows",
+    "url": "https://governorv.github.io/BoxTypes/",
+    "image": "https://governorv.github.io/BoxTypes/assets/site/hero-ru.png",
+    "description": "Программа для выбора, расчёта и создания параметрических конструкций гофроящиков.",
+    "author": {"@type": "Person", "name": "Viktor Guberniev"}
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-ru="К содержанию" data-en="Skip to content">К содержанию</a>
+
+  <picture class="top-banner" aria-label="Конструктор типов ящиков">
+    <img id="hero-image" src="assets/site/hero-ru.png" alt="Конструктор типов гофроящиков: библиотека FEFCO, редактор конструкций и параметрические развёртки">
+  </picture>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="На главную">
+        <img src="assets/app-icon.png" alt="" width="42" height="42">
+        <span><strong data-ru="Конструктор типов ящиков" data-en="Box Type Designer">Конструктор типов ящиков</strong><small>PackTuning Software</small></span>
+      </a>
+      <button class="menu-button" id="menu-button" aria-label="Открыть меню" aria-expanded="false">☰</button>
+      <nav id="site-nav" aria-label="Основная навигация">
+        <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
+        <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
+        <a href="#gallery" data-ru="Галерея" data-en="Gallery">Галерея</a>
+        <a href="#more" data-ru="Другие программы" data-en="More software">Другие программы</a>
+      </nav>
+      <div class="controls">
+        <div class="lang-switch" aria-label="Language">
+          <button type="button" data-lang="ru" class="active">RU</button>
+          <button type="button" data-lang="en">EN</button>
+        </div>
+        <button type="button" class="theme-button" id="theme-button" aria-label="Переключить тему" title="Переключить тему">
+          <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-ru="Проектирование гофроупаковки" data-en="Corrugated packaging design">Проектирование гофроупаковки</p>
+          <h1 data-ru="От готового типа FEFCO до собственной параметрической конструкции" data-en="From a ready-made FEFCO style to your own parametric design">От готового типа FEFCO до собственной параметрической конструкции</h1>
+          <p class="lead" data-ru="Выбирайте тип ящика, задавайте размеры, редактируйте формулы и команды построения — программа рассчитает заготовку и покажет развёртку." data-en="Choose a box style, set dimensions, edit formulas and drawing commands — the application calculates the blank and previews the die-line.">Выбирайте тип ящика, задавайте размеры, редактируйте формулы и команды построения — программа рассчитает заготовку и покажет развёртку.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#gallery" data-ru="Смотреть типы ящиков" data-en="Browse box styles">Смотреть типы ящиков</a>
+            <a class="button secondary" href="#features" data-ru="Изучить возможности" data-en="Explore features">Изучить возможности</a>
+          </div>
+          <div class="chips" aria-label="Ключевые характеристики">
+            <span data-ru="Windows Portable" data-en="Windows Portable">Windows Portable</span>
+            <span data-ru="Без базы данных" data-en="No database required">Без базы данных</span>
+            <span data-ru="Форматы FEFCO" data-en="FEFCO styles">Форматы FEFCO</span>
+          </div>
+        </div>
+        <aside class="hero-panel">
+          <p class="panel-label" data-ru="В библиотеке" data-en="Included library">В библиотеке</p>
+          <div class="metric"><strong>64</strong><span data-ru="типа конструкций" data-en="design templates">типа конструкций</span></div>
+          <div class="metric"><strong>2D</strong><span data-ru="параметрические развёртки" data-en="parametric die-lines">параметрические развёртки</span></div>
+          <div class="metric"><strong>5</strong><span data-ru="переменных в формулах" data-en="formula variables">переменных в формулах</span></div>
+          <p class="formula">kL × L + kB × B + kH × H + kW × W + C</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="workflow">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-ru="Понятный процесс" data-en="A clear workflow">Понятный процесс</p>
+          <h2 data-ru="Конструкция за три шага" data-en="A design in three steps">Конструкция за три шага</h2>
+          <p data-ru="От поиска в каталоге до готовой параметрической развёртки — без ручного пересчёта каждого элемента." data-en="From catalog search to a complete parametric die-line — without recalculating every element by hand.">От поиска в каталоге до готовой параметрической развёртки — без ручного пересчёта каждого элемента.</p>
+        </div>
+        <div class="steps">
+          <article><span>01</span><h3 data-ru="Выберите основу" data-en="Choose a template">Выберите основу</h3><p data-ru="Найдите конструкцию по коду или семейству FEFCO и сразу увидьте её эталонный вид." data-en="Find a design by code or FEFCO family and immediately see its reference preview.">Найдите конструкцию по коду или семейству FEFCO и сразу увидьте её эталонный вид.</p></article>
+          <article><span>02</span><h3 data-ru="Задайте правила" data-en="Set the rules">Задайте правила</h3><p data-ru="Настройте коэффициенты L, B, H, W и C, порядок команд, углы и типы линий." data-en="Configure L, B, H, W and C coefficients, command order, angles and line types.">Настройте коэффициенты L, B, H, W и C, порядок команд, углы и типы линий.</p></article>
+          <article><span>03</span><h3 data-ru="Проверьте развёртку" data-en="Check the die-line">Проверьте развёртку</h3><p data-ru="Введите размеры изделия и проверьте рассчитанную заготовку перед дальнейшей работой." data-en="Enter product dimensions and verify the calculated blank before continuing.">Введите размеры изделия и проверьте рассчитанную заготовку перед дальнейшей работой.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="features">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-ru="Ключевые возможности" data-en="Key features">Ключевые возможности</p>
+          <h2 data-ru="Всё, что нужно для справочника конструкций" data-en="Everything needed for a box design library">Всё, что нужно для справочника конструкций</h2>
+        </div>
+        <div class="feature-grid">
+          <article><span class="feature-icon">▦</span><h3 data-ru="Библиотека FEFCO" data-en="FEFCO library">Библиотека FEFCO</h3><p data-ru="Библиотека из 64 готовых конструкций серий 02, 03, 04 и специальных типов." data-en="A library of 64 ready-made Series 02, 03, 04 and special designs.">Библиотека из 64 готовых конструкций серий 02, 03, 04 и специальных типов.</p></article>
+          <article><span class="feature-icon">ƒ</span><h3 data-ru="Параметрические формулы" data-en="Parametric formulas">Параметрические формулы</h3><p data-ru="Размеры заготовки и каждого отрезка зависят от габаритов изделия и настраиваемых коэффициентов." data-en="Blank sizes and every segment respond to product dimensions and configurable coefficients.">Размеры заготовки и каждого отрезка зависят от габаритов изделия и настраиваемых коэффициентов.</p></article>
+          <article><span class="feature-icon">⌁</span><h3 data-ru="Редактор команд" data-en="Command editor">Редактор команд</h3><p data-ru="Создавайте и меняйте последовательность построения, длину, угол и назначение линий." data-en="Create and edit the drawing sequence, length, angle and purpose of every line.">Создавайте и меняйте последовательность построения, длину, угол и назначение линий.</p></article>
+          <article><span class="feature-icon">◎</span><h3 data-ru="Живое превью" data-en="Live preview">Живое превью</h3><p data-ru="Развёртка перестраивается по введённым размерам и помогает быстро проверить геометрию." data-en="The die-line responds to entered dimensions so geometry can be checked quickly.">Развёртка перестраивается по введённым размерам и помогает быстро проверить геометрию.</p></article>
+          <article><span class="feature-icon">＋</span><h3 data-ru="Свои шаблоны" data-en="Custom templates">Свои шаблоны</h3><p data-ru="Копируйте готовый тип или создавайте новый, сохраняя собственную библиотеку рядом с программой." data-en="Copy an existing style or create a new one and keep your library beside the application.">Копируйте готовый тип или создавайте новый, сохраняя собственную библиотеку рядом с программой.</p></article>
+          <article><span class="feature-icon">⇄</span><h3 data-ru="Переносимые данные" data-en="Portable data">Переносимые данные</h3><p data-ru="Справочник хранится в обычном INI-файле: его легко копировать, архивировать и переносить." data-en="The library is stored in a plain INI file that is easy to copy, archive and move.">Справочник хранится в обычном INI-файле: его легко копировать, архивировать и переносить.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="shell">
+        <div class="gallery-heading">
+          <div class="section-heading">
+            <p class="eyebrow" data-ru="Каталог конструкций" data-en="Design catalog">Каталог конструкций</p>
+            <h2><span id="gallery-count">62</span> <span data-ru="типа ящиков" data-en="box styles">типа ящиков</span></h2>
+            <p data-ru="Выберите семейство или найдите конструкцию по коду. Нажмите карточку, чтобы рассмотреть превью крупнее." data-en="Choose a family or find a design by code. Select a card to inspect the preview in detail.">Выберите семейство или найдите конструкцию по коду. Нажмите карточку, чтобы рассмотреть превью крупнее.</p>
+          </div>
+          <label class="search-box">
+            <span class="sr-only" data-ru="Поиск по коду" data-en="Search by code">Поиск по коду</span>
+            <input id="gallery-search" type="search" placeholder="Код, например 0427" autocomplete="off">
+          </label>
+        </div>
+        <div class="filters" role="group" aria-label="Фильтр по семейству">
+          <button class="active" data-filter="all" data-ru="Все типы" data-en="All styles">Все типы</button>
+          <button data-filter="02">FEFCO 02</button>
+          <button data-filter="03">FEFCO 03</button>
+          <button data-filter="04">FEFCO 04</button>
+          <button data-filter="other" data-ru="Специальные" data-en="Special">Специальные</button>
+        </div>
+        <div class="gallery-grid" id="gallery-grid" aria-live="polite"></div>
+        <p class="empty-state" id="empty-state" hidden data-ru="По вашему запросу ничего не найдено." data-en="No designs match your search.">По вашему запросу ничего не найдено.</p>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="more">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-ru="Экосистема PackTuning" data-en="PackTuning ecosystem">Экосистема PackTuning</p>
+          <h2 data-ru="Вам также могут пригодиться" data-en="You may also find these useful">Вам также могут пригодиться</h2>
+          <p data-ru="Продолжите работу с конструкцией: рассчитайте стоимость, оптимизируйте раскрой и спланируйте укладку на поддон." data-en="Take the design further: estimate its cost, optimize cutting and plan pallet stacking.">Продолжите работу с конструкцией: рассчитайте стоимость, оптимизируйте раскрой и спланируйте укладку на поддон.</p>
+        </div>
+        <div class="related-grid">
+          <a class="related-card" href="https://governorv.github.io/BoxPriceCalculator/" target="_blank" rel="noopener">
+            <img src="assets/site/boxprice.png" alt="Box Price Calculator" loading="lazy">
+            <span class="related-body"><strong>Box Price Calculator</strong><span data-ru="Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки." data-en="Cost estimation for corrugated boxes, materials, printing, packing and delivery.">Расчёт себестоимости гофроящиков, материалов, печати, упаковки и доставки.</span><em data-ru="Открыть сайт ↗" data-en="Visit website ↗">Открыть сайт ↗</em></span>
+          </a>
+          <a class="related-card" href="https://governorv.github.io/OptCutting/" target="_blank" rel="noopener">
+            <img src="assets/site/optcutting.png" alt="OptCutting" loading="lazy">
+            <span class="related-body"><strong>OptCutting</strong><span data-ru="Оптимальный раскрой листов и заготовок с учётом производственных ограничений." data-en="Optimized sheet and blank cutting with production constraints taken into account.">Оптимальный раскрой листов и заготовок с учётом производственных ограничений.</span><em data-ru="Открыть сайт ↗" data-en="Visit website ↗">Открыть сайт ↗</em></span>
+          </a>
+          <a class="related-card" href="https://governorv.github.io/BoxPalletizer/" target="_blank" rel="noopener">
+            <img src="assets/site/palletizer.png" alt="Box Palletizer" loading="lazy">
+            <span class="related-body"><strong>Box Palletizer</strong><span data-ru="Расчёт схем укладки коробов и пачек на поддоны с наглядной визуализацией." data-en="Pallet layouts for boxes and bundles with clear visual previews.">Расчёт схем укладки коробов и пачек на поддоны с наглядной визуализацией.</span><em data-ru="Открыть сайт ↗" data-en="Visit website ↗">Открыть сайт ↗</em></span>
+          </a>
+        </div>
+        <div class="catalog-link"><a class="button secondary" href="https://governorv.github.io/ProgramCatalog/" target="_blank" rel="noopener" data-ru="Все программы в каталоге ↗" data-en="View the full software catalog ↗">Все программы в каталоге ↗</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><strong data-ru="Конструктор типов ящиков" data-en="Box Type Designer">Конструктор типов ящиков</strong><p data-ru="Проектирование и настройка конструкций гофроупаковки." data-en="Design and configuration of corrugated packaging structures.">Проектирование и настройка конструкций гофроупаковки.</p></div>
+      <div class="footer-links"><a href="mailto:vguberniev@gmail.com">vguberniev@gmail.com</a><a href="https://governorv.github.io/ProgramCatalog/" data-ru="Каталог программ" data-en="Software catalog">Каталог программ</a><a href="#top" data-ru="Наверх ↑" data-en="Back to top ↑">Наверх ↑</a></div>
+    </div>
+  </footer>
+
+  <dialog id="preview-dialog" aria-labelledby="dialog-title">
+    <button class="dialog-close" id="dialog-close" aria-label="Закрыть">×</button>
+    <img id="dialog-image" src="" alt="">
+    <div><p class="eyebrow" data-ru="Превью конструкции" data-en="Design preview">Превью конструкции</p><h2 id="dialog-title"></h2></div>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
