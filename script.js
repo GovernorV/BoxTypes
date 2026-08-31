@@ -1,8 +1,8 @@
 (() => {
   const root = document.documentElement;
-  const themeButton = document.getElementById('theme-button');
   const languageButtons = document.querySelectorAll('[data-lang]');
   const heroImage = document.getElementById('hero-image');
+  const catalogCardImage = document.getElementById('catalog-card-image');
   const menuButton = document.getElementById('menu-button');
   const nav = document.getElementById('site-nav');
   const search = document.getElementById('gallery-search');
@@ -29,11 +29,21 @@
   const titleOf = code => /^\d/.test(code) ? `FEFCO ${code}` : code === 'RND' ? (language === 'ru' ? 'Репераунд' : 'Reperaund') : code;
 
   function applyTheme(theme) {
-    root.dataset.theme = theme;
-    localStorage.setItem('box-types-theme', theme);
-    const dark = theme === 'dark';
-    themeButton.setAttribute('aria-label', dark ? (language === 'ru' ? 'Включить светлую тему' : 'Switch to light theme') : (language === 'ru' ? 'Включить тёмную тему' : 'Switch to dark theme'));
-    document.querySelector('meta[name="theme-color"]').setAttribute('content', dark ? '#06111b' : '#f5f8fb');
+    const nextTheme = theme === 'night' ? 'night' : 'day';
+    root.dataset.theme = nextTheme;
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', nextTheme === 'night' ? '#06111b' : '#f5f8fb');
+  }
+
+  function automaticTheme() {
+    const hour = new Date().getHours();
+    return hour >= 6 && hour < 18 ? 'day' : 'night';
+  }
+
+  function initialTheme() {
+    const mode = localStorage.getItem('packtuning-color-scheme-mode') || 'auto';
+    if (mode === 'night' || mode === 'day') return mode;
+    if (mode === 'system') return matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day';
+    return automaticTheme();
   }
 
   function applyLanguage(nextLanguage) {
@@ -52,12 +62,13 @@
     heroImage.alt = language === 'ru'
       ? 'Конструктор типов гофроящиков: библиотека FEFCO, редактор конструкций и параметрические развёртки'
       : 'Corrugated Box Type Designer: FEFCO library, structure editor and parametric die-lines';
+    catalogCardImage.src = `assets/site/catalog_banner${language === 'en' ? '_en' : ''}.png`;
+    catalogCardImage.alt = language === 'ru' ? 'Каталог программ PackTuning Software' : 'PackTuning Software catalog';
     search.placeholder = language === 'ru' ? 'Код, например 0427' : 'Code, e.g. 0427';
     document.title = language === 'ru'
       ? 'Конструктор типов ящиков — проектирование конструкций гофроупаковки'
       : 'Corrugated Box Type Designer — parametric packaging design';
     renderGallery();
-    applyTheme(root.dataset.theme);
   }
 
   function renderGallery() {
@@ -83,19 +94,24 @@
 
   function openPreview(file) {
     const code = codeOf(file);
-    dialogImage.src = `assets/previews/${file}`;
-    dialogImage.alt = `${titleOf(code)} — ${language === 'ru' ? 'объёмный вид и развёртка' : '3D view and die-line'}`;
-    dialogTitle.textContent = titleOf(code);
+    openImage(`assets/previews/${file}`, titleOf(code), `${titleOf(code)} — ${language === 'ru' ? 'объёмный вид и развёртка' : '3D view and die-line'}`);
+  }
+
+  function openImage(src, title, alt = title) {
+    dialogImage.src = src;
+    dialogImage.alt = alt;
+    dialogTitle.textContent = title;
     closeDialog.setAttribute('aria-label', language === 'ru' ? 'Закрыть' : 'Close');
     dialog.showModal();
   }
 
-  const preferredTheme = localStorage.getItem('box-types-theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  applyTheme(preferredTheme);
+  applyTheme(initialTheme());
   applyLanguage(language);
 
-  themeButton.addEventListener('click', () => applyTheme(root.dataset.theme === 'dark' ? 'light' : 'dark'));
   languageButtons.forEach(button => button.addEventListener('click', () => applyLanguage(button.dataset.lang)));
+  document.querySelectorAll('[data-screen]').forEach(button => button.addEventListener('click', () => {
+    openImage(button.dataset.screen, button.dataset[`title${language === 'ru' ? 'Ru' : 'En'}`], button.querySelector('img').alt);
+  }));
   search.addEventListener('input', renderGallery);
   document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
     filter = button.dataset.filter;
@@ -117,4 +133,7 @@
     const rect = dialog.getBoundingClientRect();
     if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
   });
+  setInterval(() => {
+    if ((localStorage.getItem('packtuning-color-scheme-mode') || 'auto') === 'auto') applyTheme(automaticTheme());
+  }, 60 * 1000);
 })();

@@ -19,6 +19,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/app-icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="assets/site/theme-switcher.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,6 +51,7 @@
       <button class="menu-button" id="menu-button" aria-label="Открыть меню" aria-expanded="false">☰</button>
       <nav id="site-nav" aria-label="Основная навигация">
         <a href="#workflow" data-ru="Как работает" data-en="Workflow">Как работает</a>
+        <a href="#screens" data-ru="Скриншоты" data-en="Screenshots">Скриншоты</a>
         <a href="#features" data-ru="Возможности" data-en="Features">Возможности</a>
         <a href="#gallery" data-ru="Галерея" data-en="Gallery">Галерея</a>
         <a href="#more" data-ru="Другие программы" data-en="More software">Другие программы</a>
@@ -59,9 +61,6 @@
           <button type="button" data-lang="ru" class="active">RU</button>
           <button type="button" data-lang="en">EN</button>
         </div>
-        <button type="button" class="theme-button" id="theme-button" aria-label="Переключить тему" title="Переключить тему">
-          <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
-        </button>
       </div>
     </div>
   </header>
@@ -90,6 +89,26 @@
           <div class="metric"><strong>5</strong><span data-ru="переменных в формулах" data-en="formula variables">переменных в формулах</span></div>
           <p class="formula">kL × L + kB × B + kH × H + kW × W + C</p>
         </aside>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="screens">
+      <div class="shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-ru="Программа в работе" data-en="Application in use">Программа в работе</p>
+          <h2 data-ru="Развёртка и конструктор — в одном окне" data-en="Die-line and structure editor in one workspace">Развёртка и конструктор — в одном окне</h2>
+          <p data-ru="Переключайтесь между готовым чертежом и подробным редактором команд, не теряя выбранный тип и введённые размеры." data-en="Switch between the finished drawing and detailed command editor without losing the selected design or entered dimensions.">Переключайтесь между готовым чертежом и подробным редактором команд, не теряя выбранный тип и введённые размеры.</p>
+        </div>
+        <div class="screens-grid">
+          <button class="screen-card" type="button" data-screen="assets/site/screen-dieline.png" data-title-ru="Параметрическая развёртка FEFCO 0215" data-title-en="Parametric FEFCO 0215 die-line">
+            <img src="assets/site/screen-dieline.png" alt="Развёртка конструкции FEFCO 0215 в программе" loading="lazy">
+            <span><strong data-ru="Готовая развёртка" data-en="Finished die-line">Готовая развёртка</strong><small data-ru="Размеры, формулы и чертёж конструкции" data-en="Dimensions, formulas and structure drawing">Размеры, формулы и чертёж конструкции</small></span>
+          </button>
+          <button class="screen-card" type="button" data-screen="assets/site/screen-designer.png" data-title-ru="Редактор команд конструкции" data-title-en="Structure command editor">
+            <img src="assets/site/screen-designer.png" alt="Редактор команд построения конструкции FEFCO 0215" loading="lazy">
+            <span><strong data-ru="Конструктор команд" data-en="Command editor">Конструктор команд</strong><small data-ru="Линии, углы, формулы и порядок построения" data-en="Lines, angles, formulas and drawing order">Линии, углы, формулы и порядок построения</small></span>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -170,8 +189,11 @@
             <img src="assets/site/palletizer.png" alt="Box Palletizer" loading="lazy">
             <span class="related-body"><strong>Box Palletizer</strong><span data-ru="Расчёт схем укладки коробов и пачек на поддоны с наглядной визуализацией." data-en="Pallet layouts for boxes and bundles with clear visual previews.">Расчёт схем укладки коробов и пачек на поддоны с наглядной визуализацией.</span><em data-ru="Открыть сайт ↗" data-en="Visit website ↗">Открыть сайт ↗</em></span>
           </a>
+          <a class="related-card" href="https://governorv.github.io/" target="_blank" rel="noopener">
+            <img id="catalog-card-image" src="assets/site/catalog_banner.png" alt="Каталог программ PackTuning Software" loading="lazy">
+            <span class="related-body"><strong data-ru="Каталог программ" data-en="Software Catalog">Каталог программ</strong><span data-ru="Все решения PackTuning Software для упаковки, производства и логистики." data-en="All PackTuning Software solutions for packaging, manufacturing and logistics.">Все решения PackTuning Software для упаковки, производства и логистики.</span><em data-ru="Открыть весь каталог ↗" data-en="Open the full catalog ↗">Открыть весь каталог ↗</em></span>
+          </a>
         </div>
-        <div class="catalog-link"><a class="button secondary" href="https://governorv.github.io/ProgramCatalog/" target="_blank" rel="noopener" data-ru="Все программы в каталоге ↗" data-en="View the full software catalog ↗">Все программы в каталоге ↗</a></div>
       </div>
     </section>
   </main>
@@ -190,5 +212,6 @@
   </dialog>
 
   <script src="script.js"></script>
+  <script src="assets/site/theme-switcher.js"></script>
 </body>
 </html>

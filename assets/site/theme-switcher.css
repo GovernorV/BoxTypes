@@ -1,0 +1,123 @@
+.pt-color-scheme-switcher {
+  box-sizing: border-box;
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 2147483000;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  width: min(360px, calc(100vw - 24px));
+  padding: 5px;
+  border: 1px solid rgba(121, 150, 185, .34);
+  border-radius: 16px;
+  background: rgba(10, 22, 42, .9);
+  box-shadow: 0 14px 42px rgba(0, 0, 0, .28);
+  color: #eaf4ff;
+  font: 700 13px/1.2 system-ui, "Segoe UI", Arial, sans-serif;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transform: scale(.5);
+  transform-origin: right bottom;
+}
+
+.pt-color-scheme-switcher button {
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 38px;
+  margin: 0;
+  padding: 8px 7px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.pt-color-scheme-switcher button:hover {
+  background: rgba(255, 255, 255, .09);
+}
+
+.pt-color-scheme-switcher button:focus-visible {
+  outline: 2px solid #38d8ff;
+  outline-offset: 1px;
+}
+
+.pt-color-scheme-switcher button[aria-pressed="true"] {
+  background: linear-gradient(135deg, #35d7ff, #79ffd2);
+  color: #071625;
+  box-shadow: 0 5px 18px rgba(53, 215, 255, .24);
+}
+
+html.day-theme .pt-color-scheme-switcher,
+html[data-theme="day"] .pt-color-scheme-switcher {
+  border-color: rgba(35, 70, 105, .2);
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 14px 42px rgba(25, 60, 95, .18);
+  color: #10233d;
+}
+
+html.day-theme .pt-color-scheme-switcher button:hover,
+html[data-theme="day"] .pt-color-scheme-switcher button:hover {
+  background: rgba(15, 118, 110, .08);
+}
+
+/* The legacy two-button control on ProgramCatalog is replaced by this four-mode control. */
+.themeSwitch:not(.pt-color-scheme-switcher) {
+  display: none !important;
+}
+
+/* ПОЯС originally had only its current dark palette. */
+html.pt-theme-pojas.day-theme,
+html.pt-theme-pojas[data-theme="day"] {
+  color-scheme: light;
+  --ink: #10213d;
+  --muted: #53657d;
+  --dark: #f5f9ff;
+  --deep: #eaf3ff;
+  --blue: #0b78d7;
+  --cyan: #087fa4;
+  --line: rgba(16, 86, 145, .2);
+  --panel: rgba(255, 255, 255, .9);
+  --panel2: rgba(239, 247, 255, .94);
+  --shadow: 0 24px 70px rgba(24, 64, 110, .14);
+}
+
+html.pt-theme-pojas.day-theme body,
+html.pt-theme-pojas[data-theme="day"] body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(34, 215, 255, .14), transparent 28rem),
+    radial-gradient(circle at 86% 10%, rgba(255, 200, 87, .13), transparent 30rem),
+    linear-gradient(180deg, #f8fbff 0%, #edf5ff 48%, #e4effc 100%);
+}
+
+html.pt-theme-pojas.day-theme header,
+html.pt-theme-pojas[data-theme="day"] header {
+  background: rgba(248, 252, 255, .9);
+}
+
+@media (max-width: 560px) {
+  .pt-color-scheme-switcher {
+    left: 8px;
+    right: 8px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    width: auto;
+    font-size: 12px;
+  }
+
+  .pt-color-scheme-switcher button {
+    min-height: 36px;
+    padding-inline: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pt-color-scheme-switcher,
+  .pt-color-scheme-switcher button {
+    transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+}
