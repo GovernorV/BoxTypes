@@ -58,6 +58,7 @@
       element.textContent = element.dataset[language];
     });
     languageButtons.forEach(button => button.classList.toggle('active', button.dataset.lang === language));
+    document.querySelectorAll('.social-ru').forEach(link => { link.hidden = language !== 'ru'; });
     heroImage.src = `assets/site/hero-${language}.png`;
     heroImage.alt = language === 'ru'
       ? 'Конструктор типов гофроящиков: библиотека FEFCO, редактор конструкций и параметрические развёртки'
