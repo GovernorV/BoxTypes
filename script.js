@@ -15,7 +15,7 @@
   const closeDialog = document.getElementById('dialog-close');
 
   const previewFiles = [
-    '003.png','004.png','0200.png','0201.png','0202.png','0203.png','0204.png','0205.png','0206.png','0207.png','0208.png','0209.png','0210.png','0211.png','0212.png','0214.png','0215.png','0216.png','0217.png','0225.png','0226.png','0227.png','0305B.png','0305L.png','0321A.png','0401.png','0402.png','0403.png','0409.png','0410.png','0411.png','0415.png','0416.png','0420.png','0421.png','0422.png','0423.png','0424.png','0425.png','0426.png','0427.png','0428.png','0430.png','0431.png','0432.png','0433.png','0434.png','0439.png','0440.png','0441.png','0442.png','0443.png','0444.png','0445.png','0449.png','0770.png','421A.png','422A.png','422K.png','B3H3.png','N11.png','RND.png'
+    '003.png','004.png','0200.png','0201.png','0202.png','0203.png','0204.png','0205.png','0206.png','0207.png','0208.png','0209.png','0210.png','0211.png','0212.png','0214.png','0215.png','0216.png','0217.png','0225.png','0226.png','0227.png','0305B.png','0305L.png','0321A.png','0401.png','0402.png','0403.png','0409.png','0410.png','0411.png','0415.png','0416.png','0420.png','0421.png','0422.png','0423.png','0424.png','0425.png','0426.png','0427.png','0428.png','0430.png','0431.png','0432.png','0433.png','0434.png','0439.png','0440.png','0441.png','0442.png','0443.png','0444.png','0445.png','0449.png','0770.png','421A.png','422A.png','422K.png','B3H3.png','N11.png','RND.png','VEG_TRAY.svg','VEG_TRAY_8_8.svg','PASTRY_TRAY.svg','PIZZA_BOX.svg'
   ];
 
   const queryLanguage = new URLSearchParams(location.search).get('lang');
@@ -24,9 +24,10 @@
     : (localStorage.getItem('box-types-language') || (navigator.language.toLowerCase().startsWith('en') ? 'en' : 'ru'));
   let filter = 'all';
 
-  const codeOf = file => file.replace('.png', '');
+  const codeOf = file => file.replace(/\.(png|svg)$/i, '');
   const familyOf = code => code.startsWith('02') ? '02' : code.startsWith('03') ? '03' : code.startsWith('04') ? '04' : 'other';
-  const titleOf = code => /^\d/.test(code) ? `FEFCO ${code}` : code === 'RND' ? (language === 'ru' ? 'Репераунд' : 'Reperaund') : code;
+  const specialTitles = {"VEG_TRAY": {"ru": "Овощной лоток 8-2", "en": "Vegetable tray 8-2"}, "VEG_TRAY_8_8": {"ru": "Овощной лоток 8-8", "en": "Vegetable tray 8-8"}, "PASTRY_TRAY": {"ru": "Кондитерский лоток", "en": "Confectionery tray"}, "PIZZA_BOX": {"ru": "Коробка для пиццы", "en": "Pizza box"}};
+  const titleOf = code => specialTitles[code]?.[language] || (/^\d/.test(code) ? `FEFCO ${code}` : code === 'RND' ? (language === 'ru' ? 'Репераунд' : 'Reperaund') : code);
 
   function applyTheme(theme) {
     const nextTheme = theme === 'night' ? 'night' : 'day';
@@ -65,7 +66,7 @@
       : 'Corrugated Box Type Designer: FEFCO library, structure editor and parametric die-lines';
     catalogCardImage.src = `assets/site/catalog_banner${language === 'en' ? '_en' : ''}.png`;
     catalogCardImage.alt = language === 'ru' ? 'Каталог программ PackTuning Software' : 'PackTuning Software catalog';
-    search.placeholder = language === 'ru' ? 'Код, например 0427' : 'Code, e.g. 0427';
+    search.placeholder = language === 'ru' ? 'Код или название, например пицца' : 'Code or name, e.g. pizza';
     document.title = language === 'ru'
       ? 'Конструктор типов ящиков — проектирование конструкций гофроупаковки'
       : 'Corrugated Box Type Designer — parametric packaging design';
@@ -77,7 +78,7 @@
     const visible = previewFiles.filter(file => {
       const code = codeOf(file);
       const matchesFilter = filter === 'all' || familyOf(code) === filter;
-      return matchesFilter && titleOf(code).toLowerCase().includes(query);
+      return matchesFilter && [code, titleOf(code), specialTitles[code]?.ru || '', specialTitles[code]?.en || '', code === 'PIZZA_BOX' ? 'пицца пиццу' : ''].join(' ').toLowerCase().includes(query);
     });
     grid.replaceChildren(...visible.map(file => {
       const code = codeOf(file);
